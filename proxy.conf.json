@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://api.bitrise.io/v0.1/",
+    "changeOrigin": true,
+    "secure": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

@@ -1,0 +1,63 @@
+$success: #0dd3c5;
+$failed: #ff3737;
+$inProgress: #ececec;
+$aborted: orange;
+
+::ng-deep .bd-build .mat-list-item-content {
+  flex: 1 1 100%;
+}
+
+.mat-list-item {
+  &.success {
+    border-left: 5px solid $success;
+  }
+
+  &.failed {
+    border-left: 5px solid $failed;
+  }
+
+  &.in-progress {
+    border-left: 5px solid $inProgress;
+  }
+
+  &.aborted {
+    border-left: 5px solid $aborted;
+  }
+}
+
+.icon-wrapper {
+  border-right: 1px solid rgba(0,0,0,0.12);
+  margin-right: 15px;
+  padding-right: 15px;
+
+  .mat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+
+    &.success {
+      color: $success;
+    }
+
+    &.failed {
+      color: $failed;
+    }
+
+    &.in-progress {
+      color: $inProgress;
+    }
+
+    &.aborted {
+      color: $aborted;
+    }
+  }
+}
+
+.caption {
+  font-size: 10px;
+  color: #c1c1c1;
+}
+
+.triggered {
+  font-size: 11px !important;
+}

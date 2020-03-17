@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">{{ title }}</mat-toolbar>
-<mat-grid-list cols="12" gutterSize="5px" style="height: 100%">
-  <mat-grid-tile [colspan]="3">
-    build list
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="9">
+<div fxLayout="row" fxLayout.xs="column" fxFlexfill>
+  <div class="build-list-wrapper" fxFlex="20" fxFlex.xs="100">
+    <bd-build-list></bd-build-list>
+  </div>
+  <div fxFlex="80" fxFlex.xs="100">
     app list
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>
