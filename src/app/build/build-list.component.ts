@@ -3,6 +3,7 @@ import { Build } from './model/build.model';
 import { BuildService } from './services/build.service';
 import { FadeAnimation } from '../shared/animations/fade.animation';
 import { AppStateService } from '../shared/services/app-state.service';
+import { Organization } from '../organizations/model/organization.model';
 
 @Component({
   selector: 'bd-build-list',
@@ -11,7 +12,6 @@ import { AppStateService } from '../shared/services/app-state.service';
   animations: [FadeAnimation]
 })
 export class BuildListComponent implements OnInit {
-
   public builds: Array<Build> = [];
   public loading = true;
 
@@ -23,7 +23,7 @@ export class BuildListComponent implements OnInit {
     this.find();
   }
 
-  async find(org?) {
+  async find(org?: Organization) {
     this.loading = true;
     this.builds = await this.buildService.findByOrgSortDesc(org);
     this.loading = false;
