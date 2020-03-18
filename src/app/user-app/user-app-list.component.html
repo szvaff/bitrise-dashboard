@@ -1,0 +1,13 @@
+<mat-list>
+  <div mat-subheader>{{ 'app_list.title' | translate }}</div>
+  
+  <bd-spinner class="d-flex justify-center" *ngIf="loading"></bd-spinner>
+  <div *ngFor="let app of apps; let last = last">
+    <bd-user-app
+    [@fadeAnimation]
+    [owner]="app.owner.name"
+    [appTitle]="app.title"
+    class="my-10"
+    ></bd-user-app>
+  </div>
+</mat-list>

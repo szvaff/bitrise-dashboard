@@ -1,4 +1,9 @@
 .build-list-wrapper {
   background: #fafafa;
   border-right: 1px solid rgba(0,0,0,.12);
+  min-height: calc(100vh - 96px);
+}
+
+.section-wrapper {
+  padding: 16px;
 }

@@ -13,6 +13,8 @@ import { BuildComponent } from './build/components/build.component';
 import { SpinnerComponent } from './shared/components/spinner.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { UserAppListComponent } from './user-app/user-app-list.component';
+import { UserAppComponent } from './user-app/components/user-app.component';
 
 function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -23,7 +25,9 @@ function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     BuildListComponent,
     BuildComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UserAppListComponent,
+    UserAppComponent
   ],
   imports: [
     BrowserModule,

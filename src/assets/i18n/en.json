@@ -1,5 +1,8 @@
 {
   "build_list": {
     "title": "Builds"
+  },
+  "app_list": {
+    "title": "Apps"
   }
 }
