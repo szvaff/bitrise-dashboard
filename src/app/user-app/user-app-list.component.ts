@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FadeAnimation } from '../shared/animations/fade.animation';
-import { AppService } from './services/app.service';
+import { UserAppService } from './services/user-app.service';
+import { AppStateService } from '../shared/services/app-state.service';
 
 @Component({
   selector: 'bd-user-app-list',
@@ -13,11 +14,17 @@ export class UserAppListComponent implements OnInit {
   public apps: any[] = [];
   public loading = true;
 
-  constructor(private appService: AppService) {}
-
-  async ngOnInit() {
-    this.apps = await this.appService.findAllSortDesc();
-    this.loading = false;
+  constructor(private userAppService: UserAppService, private appStateService: AppStateService) {
+    this.appStateService.getSelectedOrganizationSubject().subscribe(org => this.find(org));
   }
 
+  async ngOnInit() {
+    await this.find();
+  }
+
+  async find(org?) {
+    this.loading = true;
+    this.apps = await this.userAppService.findByOrgSortDesc(org);
+    this.loading = false;
+  }
 }

@@ -15,6 +15,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UserAppListComponent } from './user-app/user-app-list.component';
 import { UserAppComponent } from './user-app/components/user-app.component';
+import { HeaderComponent } from './shared/components/header.component';
+import { SpacerComponent } from './shared/components/spacer.component';
 
 function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -27,7 +29,9 @@ function HttpLoaderFactory(http: HttpClient) {
     BuildComponent,
     SpinnerComponent,
     UserAppListComponent,
-    UserAppComponent
+    UserAppComponent,
+    HeaderComponent,
+    SpacerComponent
   ],
   imports: [
     BrowserModule,

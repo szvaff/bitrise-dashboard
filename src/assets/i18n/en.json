@@ -1,11 +1,18 @@
 {
+  "header": {
+    "org_select": {
+      "all": "All Organizations"
+    }
+  },
   "build": {
     "build_number": "Build #{{num}}"
   },
   "build_list": {
-    "title": "Builds"
+    "title": "Builds",
+    "no_builds_found": "No builds found."
   },
   "app_list": {
-    "title": "Apps"
+    "title": "Apps",
+    "no_apps_found": "No apps found."
   }
 }

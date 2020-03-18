@@ -7,8 +7,6 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Bitrise Dashboard';
-
   constructor(translate: TranslateService) {
     translate.use('en');
   }

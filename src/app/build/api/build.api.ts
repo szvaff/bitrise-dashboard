@@ -9,7 +9,7 @@ export class BuildApi {
 
   constructor(private http: HttpClient) { }
 
-  findAll(): Observable<any> {
-    return this.http.get('builds');
+  findByOrgSlug(orgSlug): Observable<any> {
+    return this.http.get(`builds?owner_slug=${orgSlug}`);
   }
 }

@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AppApi {
+export class OrganizationsApi {
 
   constructor(private http: HttpClient) { }
 
-  findAllSortDesc(): Observable<any> {
-    return this.http.get('apps?sort_by=last_build_at');
+  findAll(): Observable<any> {
+    return this.http.get('organizations');
   }
 }
