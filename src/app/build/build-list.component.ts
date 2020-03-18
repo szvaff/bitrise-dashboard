@@ -12,7 +12,7 @@ import { AppStateService } from '../shared/services/app-state.service';
 })
 export class BuildListComponent implements OnInit {
 
-  public builds: any[] = [];
+  public builds: Array<Build> = [];
   public loading = true;
 
   constructor(private buildService: BuildService, private appStateService: AppStateService) {

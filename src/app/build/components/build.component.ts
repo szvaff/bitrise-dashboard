@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { BuildStatus } from '../model/build.model';
 
 @Component({
   selector: 'bd-build',
@@ -10,18 +11,18 @@ export class BuildComponent {
   @Input() public appTitle: string;
   @Input() public triggered: string;
   @Input() public buildNumber: string;
-  @Input() public status: number; // 0 - in progress, 1 - successful, 2 - failed, 3,4 - aborted
+  @Input() public status: BuildStatus;
 
-  public classByStatus() {
+  public classByStatus(): string {
     switch (this.status) {
-      case 0:
+      case BuildStatus.IN_PROGRESS:
         return 'in-progress';
-      case 1:
+      case BuildStatus.SUCCESS:
         return 'success';
-      case 2:
+      case BuildStatus.FAILED:
         return 'failed';
-      case 3:
-      case 4:
+      case BuildStatus.ABORTED_WITH_SUCCESS:
+      case BuildStatus.ABORTED_WITH_FAILURE:
         return 'aborted';
     }
   }

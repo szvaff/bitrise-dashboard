@@ -4,8 +4,8 @@
   <div *ngFor="let build of builds; let last = last" [hidden]="loading">
     <bd-build
       [@fadeAnimation]
-      [owner]="build.repository.owner.name"
-      [appTitle]="build.repository.title"
+      [owner]="build.owner"
+      [appTitle]="build.appTitle"
       [triggered]="build.triggered_at"
       [buildNumber]="build.slug"
       [status]="build.status"></bd-build>

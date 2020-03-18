@@ -4,7 +4,7 @@
   <div *ngFor="let app of apps; let last = last" [hidden]="loading">
     <bd-user-app
       [@fadeAnimation]
-      [owner]="app.owner.name"
+      [owner]="app.ownerName"
       [appTitle]="app.title"
       class="my-10"
     ></bd-user-app>
