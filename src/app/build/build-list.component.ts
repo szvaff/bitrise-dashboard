@@ -17,7 +17,7 @@ export class BuildListComponent implements OnInit {
   constructor(private buildService: BuildService) {}
 
   async ngOnInit() {
-    this.builds = await this.buildService.findAllSorted();
+    this.builds = await this.buildService.findAllSortDesc();
     this.loading = false;
   }
 
