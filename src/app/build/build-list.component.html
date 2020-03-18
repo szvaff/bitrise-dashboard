@@ -1,5 +1,5 @@
 <mat-list>
-  <div mat-subheader>Builds</div>
+  <div mat-subheader>{{ 'build_list.title' | translate }}</div>
   <bd-spinner class="d-flex justify-center" *ngIf="loading"></bd-spinner>
   <div *ngFor="let build of builds; let last = last">
     <bd-build
