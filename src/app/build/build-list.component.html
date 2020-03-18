@@ -1,22 +1,21 @@
 <mat-list>
   <div mat-subheader>{{ 'build_list.title' | translate }}</div>
   <bd-spinner class="d-flex justify-center" *ngIf="loading"></bd-spinner>
-  <span *ngIf="!loading">
-    <div *ngFor="let build of builds; let last = last">
-      <bd-build
-        [@fadeAnimation]
-        [owner]="build.repository.owner.name"
-        [appTitle]="build.repository.title"
-        [triggered]="build.triggered_at"
-        [buildNumber]="build.slug"
-        [status]="build.status"></bd-build>
-      <mat-divider *ngIf="!last"></mat-divider>
-    </div>
-    <div
+  <div *ngFor="let build of builds; let last = last" [hidden]="loading">
+    <bd-build
       [@fadeAnimation]
-      *ngIf="builds.length === 0"
-      class="text-center mat-headline">
-      {{ 'build_list.no_builds_found' | translate }}
-    </div>
-  </span>
+      [owner]="build.repository.owner.name"
+      [appTitle]="build.repository.title"
+      [triggered]="build.triggered_at"
+      [buildNumber]="build.slug"
+      [status]="build.status"></bd-build>
+    <mat-divider *ngIf="!last"></mat-divider>
+  </div>
+  <div
+    [hidden]="loading"
+    [@fadeAnimation]
+    *ngIf="builds.length === 0"
+    class="text-center mat-headline">
+    {{ 'build_list.no_builds_found' | translate }}
+  </div>
 </mat-list>

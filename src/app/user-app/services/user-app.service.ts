@@ -9,7 +9,7 @@ export class UserAppService {
   constructor(private api: UserAppApi) { }
 
   async findByOrgSortDesc(org?) {
-    if (!org) {
+    if (!org || !org.slug) {
       return (await this.api.findAllSortDesc().toPromise()).data;
     }
 

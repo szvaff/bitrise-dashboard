@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AppStateService {
-  selectedOrgSubject = new Subject<string>();
+  selectedOrgSubject = new Subject<any>();
 
   setSelectedOrganization(newValue) {
     this.selectedOrgSubject.next(newValue);
