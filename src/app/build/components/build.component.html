@@ -1,19 +1,23 @@
 <mat-list-item class="bd-build" fxLayout="row" fxFlex="100" [class]="classByStatus()">
-  <div fxFlex="5" class="icon-wrapper">
+  <div fxFlex="10" class="icon-wrapper text-center">
     <mat-icon [class]="classByStatus()" mat-list-icon *ngIf="status === 0">play_circle_outline</mat-icon>
     <mat-icon [class]="classByStatus()" mat-list-icon *ngIf="status === 1">check_circle</mat-icon>
     <mat-icon [class]="classByStatus()" mat-list-icon *ngIf="status === 2">cancel</mat-icon>
     <mat-icon [class]="classByStatus()" mat-list-icon *ngIf="status === 3">close</mat-icon>
     <mat-icon [class]="classByStatus()" mat-list-icon *ngIf="status === 4">close</mat-icon>
   </div>
-  <div fxFlex="50" fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="15px">
-    <div fxFlex="60" fxLayout="column">
+  <div fxFlex="90" fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="15px">
+    <div fxFlex="35">
       <div mat-line class="app-title">{{ appTitle }}</div>
-      <div mat-line class="triggered">{{ triggered | date }}</div>
     </div>
-    <div fxFlex="45" fxLayout="column" class="text-right">
-      <div class="caption">{{ buildNumber }}</div>
+    <div fxFlex="20" fxLayout="column" class="text-right">
+      <div class="caption">{{ 'build.build_number' | translate:{num:buildNumber} }}</div>
+    </div>
+    <div fxFlex="20" fxLayout="column" class="text-right">
       <div class="caption">{{ owner }}</div>
+    </div>
+    <div fxFlex="20" fxLayout="column" class="text-right">
+      <div mat-line class="triggered">{{ triggered | date }}</div>
     </div>
   </div>
 </mat-list-item>

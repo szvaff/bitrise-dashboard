@@ -1,4 +1,7 @@
 {
+  "build": {
+    "build_number": "Build #{{num}}"
+  },
   "build_list": {
     "title": "Builds"
   },
