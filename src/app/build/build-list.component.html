@@ -3,6 +3,7 @@
   <bd-spinner class="d-flex justify-center" *ngIf="loading"></bd-spinner>
   <div *ngFor="let build of builds; let last = last">
     <bd-build
+    [@fadeAnimation]
     [owner]="build.repository.owner.name"
     [appTitle]="build.repository.title"
     [triggered]="build.triggered_at"
