@@ -10,13 +10,13 @@
     <div fxFlex="35">
       <div mat-line class="app-title">{{ appTitle }}</div>
     </div>
-    <div fxFlex="20" fxLayout="column" class="text-right">
+    <div fxFlex="20" fxLayout="column" class="build-number text-right">
       <div class="caption">{{ 'build.build_number' | translate:{num:buildNumber} }}</div>
     </div>
-    <div fxFlex="20" fxLayout="column" class="text-right">
+    <div fxFlex="20" fxLayout="column" class="owner text-right">
       <div class="caption">{{ owner }}</div>
     </div>
-    <div fxFlex="20" fxLayout="column" class="text-right">
+    <div fxFlex="20" fxLayout="column" class="triggered text-right">
       <div mat-line class="triggered">{{ triggered | date }}</div>
     </div>
   </div>
