@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { BuildListComponent } from './build-list.component';
@@ -7,15 +7,10 @@ import { BuildService } from './services/build.service';
 import { AppStateService } from '../shared/services/app-state.service';
 import { Organization } from '../organizations/model/organization.model';
 
-let buildServiceFindByOrgSortDescCalled = false;
-class MockBuildService {
-  findByOrgSortDesc() {
-    buildServiceFindByOrgSortDescCalled = true;
-  }
-}
-
 describe('BuildListComponent', () => {
-  buildServiceFindByOrgSortDescCalled = false;
+  let fixture: ComponentFixture<BuildListComponent>;
+  let spy;
+  let comp: BuildListComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -27,32 +22,27 @@ describe('BuildListComponent', () => {
         BuildListComponent
       ],
       providers: [
-        { provide: BuildService, useClass: MockBuildService },
+        { provide: BuildService, useClass: BuildService },
         { provide: AppStateService, useClass: AppStateService }
       ]
     }).compileComponents();
+    fixture = TestBed.createComponent(BuildListComponent);
+    spy = spyOn(TestBed.inject(BuildService), 'findByOrgSortDesc').and.callThrough();
+    comp = fixture.componentInstance;
   }));
 
   it('should create the component', () => {
-    const fixture = TestBed.createComponent(BuildListComponent);
-    const comp = fixture.componentInstance;
     expect(comp).toBeTruthy();
   });
 
   it('should call BuildService.findByOrgSortDesc on init', () => {
-    TestBed.inject(BuildService);
-    const fixture = TestBed.createComponent(BuildListComponent);
-    const comp = fixture.componentInstance;
     comp.ngOnInit();
-    expect(buildServiceFindByOrgSortDescCalled).toBe(true);
+    expect(spy).toHaveBeenCalled();
   });
 
   it('should call BuildService.findByOrgSortDesc on organization change', () => {
     const appStateService = TestBed.inject(AppStateService);
-    TestBed.inject(BuildService);
-    const fixture = TestBed.createComponent(BuildListComponent);
-    const comp = fixture.componentInstance;
     appStateService.setSelectedOrganization(new Organization({ name: 'x', slug: 'dummy'}));
-    expect(buildServiceFindByOrgSortDescCalled).toBe(true);
+    expect(spy).toHaveBeenCalled();
   });
 });
