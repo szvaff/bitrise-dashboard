@@ -12,11 +12,18 @@ export class HeaderComponent implements OnInit {
   title = 'Bitrise Dashboard';
   organizations = [];
   selectedOrg = null;
+  error = false;
 
   constructor(private organizationService: OrganizationService, private appStateService: AppStateService) {}
 
   async ngOnInit() {
-    this.organizations = await this.organizationService.findAll();
+    try {
+      this.error = false;
+      this.organizations = await this.organizationService.findAll();
+    } catch (e) {
+      console.error(e);
+      this.error = true;
+    }
   }
 
   onOrgSelect() {

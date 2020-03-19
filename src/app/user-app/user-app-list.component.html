@@ -16,4 +16,7 @@
     class="text-center mat-headline">
     {{ 'app_list.no_apps_found' | translate }}
   </div>
+  <div *ngIf="error" class="text-center">
+    {{ 'app_list.error_occured' | translate }}
+  </div>
 </mat-list>

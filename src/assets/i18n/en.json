@@ -9,10 +9,12 @@
   },
   "build_list": {
     "title": "Builds",
-    "no_builds_found": "No builds found."
+    "no_builds_found": "No builds found.",
+    "error_occured": "Error occured."
   },
   "app_list": {
     "title": "Apps",
-    "no_apps_found": "No apps found."
+    "no_apps_found": "No apps found.",
+    "error_occured": "Error occured."
   }
 }

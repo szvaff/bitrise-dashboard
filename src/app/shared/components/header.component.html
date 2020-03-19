@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <span>{{ title }}</span>
   <bd-spacer></bd-spacer>
-  <span class="org-select">
+  <span class="org-select" *ngIf="!error">
     <mat-select placeholder="All Organizations" [(value)]="selectedOrg" (selectionChange)="onOrgSelect()">
       <mat-option [value]="{ slug: null }">{{ 'header.org_select.all' | translate }}</mat-option>
       <mat-option *ngFor="let org of organizations" [value]="org">

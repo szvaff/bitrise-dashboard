@@ -18,4 +18,7 @@
     class="text-center mat-headline">
     {{ 'build_list.no_builds_found' | translate }}
   </div>
+  <div *ngIf="error" class="text-center">
+    {{ 'build_list.error_occured' | translate }}
+  </div>
 </mat-list>

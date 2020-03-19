@@ -14,6 +14,7 @@ import { Organization } from '../organizations/model/organization.model';
 export class UserAppListComponent implements OnInit {
   public apps: Array<UserApp> = [];
   public loading = true;
+  public error = false;
 
   constructor(private userAppService: UserAppService, private appStateService: AppStateService) {
     this.appStateService.getSelectedOrganizationSubject().subscribe((org: Organization) => this.find(org));
@@ -24,8 +25,15 @@ export class UserAppListComponent implements OnInit {
   }
 
   async find(org?: Organization) {
-    this.loading = true;
-    this.apps = await this.userAppService.findByOrgSortDesc(org);
-    this.loading = false;
+    try {
+      this.loading = true;
+      this.error = false;
+      this.apps = await this.userAppService.findByOrgSortDesc(org);
+    } catch (e) {
+      console.error(e);
+      this.error = true;
+    } finally {
+      this.loading = false;
+    }
   }
 }

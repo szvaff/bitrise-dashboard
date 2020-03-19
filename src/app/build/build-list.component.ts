@@ -14,6 +14,7 @@ import { Organization } from '../organizations/model/organization.model';
 export class BuildListComponent implements OnInit {
   public builds: Array<Build> = [];
   public loading = true;
+  public error = false;
 
   constructor(private buildService: BuildService, private appStateService: AppStateService) {
     this.appStateService.getSelectedOrganizationSubject().subscribe(org => this.find(org));
@@ -24,9 +25,16 @@ export class BuildListComponent implements OnInit {
   }
 
   async find(org?: Organization) {
-    this.loading = true;
-    this.builds = await this.buildService.findByOrgSortDesc(org);
-    this.loading = false;
+    try {
+      this.loading = true;
+      this.error = false;
+      this.builds = await this.buildService.findByOrgSortDesc(org);
+    } catch (e) {
+      console.error(e);
+      this.error = true;
+    } finally {
+      this.loading = false;
+    }
   }
 
 }
